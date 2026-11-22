@@ -28,6 +28,10 @@ function Headline({ report }: { report: Report }) {
         kinds they cover with {report.fault_study.false_alarms} false alarms, and in the simulated ecosystem the lab cut project-days on broken traces by{" "}
         {pct(lab.exposure_cut_vs_status_quo[0])}.
       </p>
+      <p className={styles.gates}>
+        Gates set before the held-out run: {report.gates.filter((g) => g.pass).length} of {report.gates.length} pass
+        {report.gates.some((g) => !g.pass) ? `. Failed: ${report.gates.filter((g) => !g.pass).map((g) => `${g.gate} (measured ${g.measured})`).join("; ")}.` : "."}
+      </p>
     </div>
   );
 }

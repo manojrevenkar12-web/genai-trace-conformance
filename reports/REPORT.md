@@ -2,6 +2,63 @@
 
 _Generated from `reports/`. Do not edit by hand._
 
+## heldout (config `a858c88ab94d`)
+
+On 5 held-out environments (14 pinned SDK versions), 16 of 16 scenario runs completed and 0 crashed; the checks failed on 3 runs (cost_exact, one_generation_per_call). In the simulated ecosystem the lab cut project-days on broken traces by 52% (45% to 59%) against today.
+
+| Environment | Runs | Crashed | Failing checks |
+|---|---|---|---|
+| openai · langfuse 5.1 / openai 3.30 | 5 | 0 | none |
+| openai · langfuse 4.10 / openai 2.30 | 5 | 0 | none |
+| langchain · langfuse 5.1 / langchain 1.7 / anthropic 2.5 | 3 | 0 | langchain.anthropic_cache: one_generation_per_call (4 generations for 2 calls, from langfuse-sdk (2), com.anthropic.sdk.python (2))<br>langchain.anthropic_cache: cost_exact (traced $0.013865 vs charged $0.006933 (+100%))<br>langchain.anthropic_plus_otel: one_generation_per_call (6 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic )<br>langchain.anthropic_plus_otel: cost_exact (traced $0.020798 vs charged $0.006933 (+200%)) |
+| pydantic-ai · 2.60 / anthropic 2.8 | 2 | 0 | pydantic_ai.anthropic_cache: one_generation_per_call (4 generations for 2 calls, from pydantic-ai (2), com.anthropic.sdk.python (2))<br>pydantic_ai.anthropic_cache: cost_exact (traced $0.013973 vs charged $0.006987 (+100%)) |
+| agents sdk · 0.22 / openinference 2.7 | 1 | 0 | none |
+
+| Bug kind planted in real traces | Planted | Caught | Recall |
+|---|---|---|---|
+| attribute renamed | 6 | 6 | 100% |
+| cache double count | 12 | 12 | 100% |
+| cache dropped | 12 | 12 | 100% |
+| context lost | 78 | 78 | 100% |
+| duplicate generation | 78 | 78 | 100% |
+| first token time missing | 12 | 0 | 0% |
+| latency zero | 78 | 21 | 27% |
+| model missing | 78 | 78 | 100% |
+| object object output | 78 | 78 | 100% |
+| parent never exported | 78 | 78 | 100% |
+| runs mixed | 24 | 24 | 100% |
+| tool span missing | 30 | 30 | 100% |
+| usage missing | 78 | 78 | 100% |
+
+Harmless changes (reordered exports, extra HTTP spans, extra attributes, renamed spans, 3 ms clock skew): 195, false alarms: 0.
+
+| Triage against maintainers' integration labels | Issues | Precision | Recall | F1 |
+|---|---|---|---|---|
+| Triage agent | 383 | 0.51 | 0.79 | 0.62 |
+| Any mention of the framework | 383 | 0.34 | 0.85 | 0.49 |
+
+| Design | Bugs reaching users | Caught by the lab | Project-days on broken traces cut | Wrong-cost project-days cut | Median days, release to fix | Maintainer hours / week |
+|---|---|---|---|---|---|---|
+| Today: users report it, a maintainer reproduces and bisects by hand | 100% | 0% | – | – | 10.5 | 6.1 |
+| Triage agent on incoming issues, no conformance runs | 100% | 0% | 11% (10% to 12%) | 11% (10% to 13%) | 9.4 | 5.3 |
+| Nightly conformance runs on each new release, with bisect | 100% | 44% | 35% (29% to 40%) | 38% (31% to 44%) | 6.3 | 6.2 |
+| Nightly runs on releases and on each framework's main branch | 67% | 45% | 47% (39% to 54%) | 51% (43% to 59%) | 6.3 | 6.2 |
+| The lab: nightly on releases and main, bisect, triage agent | 67% | 45% | 52% (45% to 59%) | 56% (49% to 63%) | 4.8 | 6.0 |
+
+| Gate | Measured | Pass |
+|---|---|---|
+| recall on the bug kinds the checks cover at least 95% | 1.0 | yes |
+| false alarms on harmless changes at most 1% | 0.0 | yes |
+| triage F1 against maintainers' labels at least 0.65 | 0.622 | NO |
+| lab cuts project-days on broken traces by at least 25% (low end of the interval) | 0.449 | yes |
+| lab maintainer hours at most 110% of today's | 0.979 | yes |
+
+### Every failing or crashing run
+
+- **langchain · langfuse 5.1 / langchain 1.7 / anthropic 2.5**, `langchain.anthropic_cache`: one_generation_per_call fail: 4 generations for 2 calls, from langfuse-sdk (2), com.anthropic.sdk.python (2); cost_exact fail: traced $0.013865 vs charged $0.006933 (+100%); standard_attribute_names warn: non-standard: gen_ai.usage.cache_write.input_tokens
+- **langchain · langfuse 5.1 / langchain 1.7 / anthropic 2.5**, `langchain.anthropic_plus_otel`: one_generation_per_call fail: 6 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic (2), com.anthropic.sdk.python (2); cost_exact fail: traced $0.020798 vs charged $0.006933 (+200%); standard_attribute_names warn: non-standard: gen_ai.usage.cache_write.input_tokens
+- **pydantic-ai · 2.60 / anthropic 2.8**, `pydantic_ai.anthropic_cache`: one_generation_per_call fail: 4 generations for 2 calls, from pydantic-ai (2), com.anthropic.sdk.python (2); cost_exact fail: traced $0.013973 vs charged $0.006987 (+100%); standard_attribute_names warn: non-standard: gen_ai.usage.cache_write.input_tokens
+
 ## dev (config `a858c88ab94d`)
 
 On 16 development environments (34 pinned SDK versions), 41 of 43 scenario runs completed and 2 crashed; the checks failed on 7 runs (cost_exact, one_generation_per_call). In the simulated ecosystem the lab cut project-days on broken traces by 52% (46% to 58%) against today.

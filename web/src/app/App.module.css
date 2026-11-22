@@ -9,5 +9,6 @@
 .headline { display: grid; gap: var(--s4); max-width: 64ch; }
 .headline h1 { font-size: var(--t-xxl); line-height: 1.08; letter-spacing: -0.025em; }
 .headline p { color: var(--ink-2); font-size: var(--t-m); max-width: var(--measure); }
+.gates { font-size: var(--t-s); color: var(--ink); border-left: 3px solid var(--rule-strong); padding-left: var(--s3); }
 .foot { border-top: 1px solid var(--rule); padding-top: var(--s4); color: var(--ink-3); font-size: var(--t-xs); max-width: 90ch; }
 @media (max-width: 760px) { .page { padding: var(--s4) var(--s4) var(--s7); } .headline h1 { font-size: var(--t-xl); } .main { gap: var(--s7); } }

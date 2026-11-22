@@ -1,0 +1,112 @@
+{
+  "_comment": "The simulated ecosystem. Framework release rates and user shares are assumptions sized from public release histories and download ranks, not Langfuse data. The world never reads config/designs.json or the lab's checks; it is given each design's detection ability as numbers.",
+  "weeks": 26,
+  "integrations": {
+    "openai": {
+      "users": 4000,
+      "releases_per_week": 1.0,
+      "covered": true,
+      "on_main_first": 0.6,
+      "lead_days": 3
+    },
+    "langchain": {
+      "users": 3500,
+      "releases_per_week": 1.5,
+      "covered": true,
+      "on_main_first": 0.8,
+      "lead_days": 4
+    },
+    "anthropic": {
+      "users": 2000,
+      "releases_per_week": 0.7,
+      "covered": true,
+      "on_main_first": 0.6,
+      "lead_days": 3
+    },
+    "pydantic_ai": {
+      "users": 1200,
+      "releases_per_week": 2.0,
+      "covered": true,
+      "on_main_first": 0.9,
+      "lead_days": 3
+    },
+    "agents_sdk": {
+      "users": 1500,
+      "releases_per_week": 0.8,
+      "covered": true,
+      "on_main_first": 0.7,
+      "lead_days": 4
+    },
+    "vercel_ai": {
+      "users": 2500,
+      "releases_per_week": 1.5,
+      "covered": false,
+      "on_main_first": 0.8,
+      "lead_days": 3
+    },
+    "litellm": {
+      "users": 1500,
+      "releases_per_week": 3.0,
+      "covered": false,
+      "on_main_first": 0.5,
+      "lead_days": 1
+    },
+    "llamaindex": {
+      "users": 900,
+      "releases_per_week": 1.0,
+      "covered": false,
+      "on_main_first": 0.7,
+      "lead_days": 3
+    },
+    "crewai": {
+      "users": 700,
+      "releases_per_week": 0.7,
+      "covered": false,
+      "on_main_first": 0.6,
+      "lead_days": 3
+    },
+    "livekit": {
+      "users": 300,
+      "releases_per_week": 0.8,
+      "covered": false,
+      "on_main_first": 0.7,
+      "lead_days": 3
+    }
+  },
+  "break_probability": 0.05,
+  "fault_mix": {
+    "duplicate_generation": 0.13,
+    "cache_double_count": 0.093,
+    "cache_dropped": 0.111,
+    "object_object_output": 0.111,
+    "context_lost": 0.111,
+    "parent_never_exported": 0.056,
+    "model_missing": 0.056,
+    "usage_missing": 0.074,
+    "tool_span_missing": 0.074,
+    "attribute_renamed": 0.074,
+    "runs_mixed": 0.037,
+    "latency_zero": 0.046,
+    "first_token_time_missing": 0.028
+  },
+  "cost_faults": [
+    "duplicate_generation",
+    "cache_double_count",
+    "cache_dropped",
+    "model_missing",
+    "usage_missing"
+  ],
+  "upgrade_days": 14,
+  "report_per_affected_project_day": 0.0003,
+  "fix_days": 2.0,
+  "triage_days_manual": 2.0,
+  "hours": {
+    "triage": 1.0,
+    "repro_manual": 3.0,
+    "bisect_manual": 2.0,
+    "fix": 4.0,
+    "review_lab_finding": 0.5,
+    "lab_upkeep_per_week": 1.5,
+    "false_alarm": 0.5
+  }
+}

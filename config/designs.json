@@ -1,0 +1,8 @@
+{
+  "_comment": "Ways of catching tracing breakage in framework releases, all played on the same releases and the same luck.",
+  "status_quo":   {"label": "Today: users report it, a maintainer reproduces and bisects by hand", "nightly": false, "main_branch": false, "agent": false, "bisect": false},
+  "agent_only":   {"label": "Triage agent on incoming issues, no conformance runs",                 "nightly": false, "main_branch": false, "agent": true,  "bisect": false},
+  "nightly":      {"label": "Nightly conformance runs on each new release, with bisect",            "nightly": true,  "main_branch": false, "agent": false, "bisect": true},
+  "nightly_main": {"label": "Nightly runs on releases and on each framework's main branch",         "nightly": true,  "main_branch": true,  "agent": false, "bisect": true},
+  "lab":          {"label": "The lab: nightly on releases and main, bisect, triage agent",          "nightly": true,  "main_branch": true,  "agent": true,  "bisect": true}
+}

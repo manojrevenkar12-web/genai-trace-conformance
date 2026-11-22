@@ -1,0 +1,5 @@
+{
+  "_comment": "USD per million tokens for the local server's models. Buckets are exclusive: input is uncached input only.",
+  "gpt-test-mini": {"input": 0.40, "cache_read": 0.10, "cache_write": 0.40, "output": 1.60},
+  "claude-test-sonnet": {"input": 3.00, "cache_read": 0.30, "cache_write": 3.75, "output": 15.00}
+}

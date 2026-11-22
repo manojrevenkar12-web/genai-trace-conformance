@@ -1,0 +1,4380 @@
+{
+ "set": "dev",
+ "config_sha": "56a35d7550d0",
+ "collected_on": "2026-11-22",
+ "seeds": {
+  "simulation": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "faults": [
+   1,
+   2,
+   3
+  ]
+ },
+ "facts": {
+  "environments": 16,
+  "cells": 43,
+  "cells_ran": 41,
+  "cells_crashed": 2,
+  "model_calls": 110,
+  "spans": 228,
+  "pinned_versions": 34,
+  "issues": 467
+ },
+ "checks": [
+  {
+   "id": "one_generation_per_call",
+   "title": "One generation per model call"
+  },
+  {
+   "id": "model_name",
+   "title": "Model name matches the call"
+  },
+  {
+   "id": "usage_exact",
+   "title": "Token usage matches, cache included once"
+  },
+  {
+   "id": "cost_exact",
+   "title": "Cost matches what the provider charged"
+  },
+  {
+   "id": "readable_io",
+   "title": "Input and output are readable text"
+  },
+  {
+   "id": "one_trace_per_run",
+   "title": "One trace per run, no broken parents"
+  },
+  {
+   "id": "nested_under_run",
+   "title": "Generations sit under their run"
+  },
+  {
+   "id": "tools_traced",
+   "title": "Every executed tool is traced"
+  },
+  {
+   "id": "run_isolation",
+   "title": "Concurrent runs stay in their own traces"
+  },
+  {
+   "id": "standard_attribute_names",
+   "title": "Usage attributes use standard GenAI names"
+  }
+ ],
+ "environments": [
+  {
+   "name": "openai · latest",
+   "family": "openai",
+   "pins": {
+    "langfuse": "5.2.0",
+    "openai": "3.57.0"
+   }
+  },
+  {
+   "name": "openai · langfuse 5.0 / openai 3.0",
+   "family": "openai",
+   "pins": {
+    "langfuse": "5.0.1",
+    "openai": "3.0.0"
+   }
+  },
+  {
+   "name": "openai · langfuse 4.18 / openai 2.54",
+   "family": "openai",
+   "pins": {
+    "langfuse": "4.18.0",
+    "openai": "2.54.0"
+   }
+  },
+  {
+   "name": "openai · langfuse 3.15 / openai 1.109",
+   "family": "openai",
+   "pins": {
+    "langfuse": "3.15.0",
+    "openai": "1.109.1"
+   }
+  },
+  {
+   "name": "langchain · latest",
+   "family": "langchain",
+   "pins": {
+    "langfuse": "5.2.0",
+    "langchain-core": "1.8.4",
+    "langchain-openai": "1.8.5",
+    "langchain-anthropic": "1.7.12",
+    "anthropic": "2.12.0",
+    "openai": "3.57.0",
+    "opentelemetry-instrumentation-anthropic": "0.63.1"
+   }
+  },
+  {
+   "name": "langchain · anthropic 1.13",
+   "family": "langchain",
+   "pins": {
+    "langfuse": "5.2.0",
+    "langchain-core": "1.8.4",
+    "langchain-openai": "1.8.5",
+    "langchain-anthropic": "1.7.12",
+    "anthropic": "1.13.0",
+    "openai": "3.57.0",
+    "opentelemetry-instrumentation-anthropic": "0.63.1"
+   }
+  },
+  {
+   "name": "langchain · langfuse 4.18 / langchain-openai 1.6 / anthropic 0.125",
+   "family": "langchain",
+   "pins": {
+    "langfuse": "4.18.0",
+    "langchain": "1.0.8",
+    "langchain-core": "1.8.4",
+    "langchain-openai": "1.6.7",
+    "langchain-anthropic": "1.6.1",
+    "openai": "2.54.0",
+    "anthropic": "0.125.0",
+    "opentelemetry-instrumentation-anthropic": "0.58.1"
+   }
+  },
+  {
+   "name": "langchain · langfuse 3 / langchain 0.3",
+   "family": "langchain",
+   "pins": {
+    "langfuse": "3.15.0",
+    "langchain-core": "0.3.86",
+    "langchain-openai": "0.3.35",
+    "langchain-anthropic": "0.3.22",
+    "openai": "1.109.1",
+    "opentelemetry-instrumentation-anthropic": "0.58.1",
+    "langchain": "0.3.27"
+   }
+  },
+  {
+   "name": "pydantic-ai · latest",
+   "family": "pydantic_ai",
+   "pins": {
+    "langfuse": "5.2.0",
+    "pydantic-ai-slim[openai,anthropic]": "2.71.0",
+    "anthropic": "2.12.0"
+   }
+  },
+  {
+   "name": "pydantic-ai · 2.40 + newest anthropic the installer allows",
+   "family": "pydantic_ai",
+   "pins": {
+    "langfuse": "4.18.0",
+    "pydantic-ai-slim[openai,anthropic]": "2.40.0"
+   }
+  },
+  {
+   "name": "pydantic-ai · 2.40 / anthropic 1.17",
+   "family": "pydantic_ai",
+   "pins": {
+    "langfuse": "4.18.0",
+    "pydantic-ai-slim[openai,anthropic]": "2.40.0",
+    "anthropic": "1.17.0"
+   }
+  },
+  {
+   "name": "pydantic-ai · 1.107",
+   "family": "pydantic_ai",
+   "pins": {
+    "langfuse": "3.15.0",
+    "pydantic-ai-slim[openai,anthropic]": "1.107.10"
+   }
+  },
+  {
+   "name": "agents sdk · latest",
+   "family": "agents_sdk",
+   "pins": {
+    "langfuse": "5.2.0",
+    "openai-agents": "0.25.0",
+    "openinference-instrumentation-openai-agents": "2.8.7"
+   }
+  },
+  {
+   "name": "agents sdk · 0.20",
+   "family": "agents_sdk",
+   "pins": {
+    "langfuse": "4.18.0",
+    "openai-agents": "0.20.0",
+    "openinference-instrumentation-openai-agents": "2.4.0"
+   }
+  },
+  {
+   "name": "agents sdk · 0.17 + newest openai the installer allows",
+   "family": "agents_sdk",
+   "pins": {
+    "langfuse": "3.15.0",
+    "openai-agents": "0.17.0",
+    "openinference-instrumentation-openai-agents": "1.6.2"
+   }
+  },
+  {
+   "name": "agents sdk · 0.17 / openai 2.44",
+   "family": "agents_sdk",
+   "pins": {
+    "langfuse": "3.15.0",
+    "openai-agents": "0.17.0",
+    "openinference-instrumentation-openai-agents": "1.6.2",
+    "openai": "2.44.0"
+   }
+  }
+ ],
+ "matrix": {
+  "openai · latest": {
+   "scenarios": 5,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 4
+    },
+    "run_isolation": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 3
+    },
+    "standard_attribute_names": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": []
+  },
+  "openai · langfuse 5.0 / openai 3.0": {
+   "scenarios": 5,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 4
+    },
+    "run_isolation": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 3
+    },
+    "standard_attribute_names": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": []
+  },
+  "openai · langfuse 4.18 / openai 2.54": {
+   "scenarios": 5,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 4
+    },
+    "run_isolation": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 3
+    },
+    "standard_attribute_names": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": []
+  },
+  "openai · langfuse 3.15 / openai 1.109": {
+   "scenarios": 5,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 4
+    },
+    "run_isolation": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 3
+    },
+    "standard_attribute_names": {
+     "pass": 5,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": []
+  },
+  "langchain · latest": {
+   "scenarios": 3,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 1,
+     "fail": 2,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 1,
+     "fail": 2,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 3
+    },
+    "standard_attribute_names": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 2,
+     "n/a": 0
+    }
+   },
+   "failures": [
+    {
+     "scenario": "langchain.anthropic_cache",
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "scenario": "langchain.anthropic_cache",
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013865 vs charged $0.006933 (+100%)"
+    },
+    {
+     "scenario": "langchain.anthropic_cache",
+     "check": "standard_attribute_names",
+     "status": "warn",
+     "detail": "non-standard: gen_ai.usage.cache_write.input_tokens"
+    },
+    {
+     "scenario": "langchain.anthropic_plus_otel",
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "6 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "scenario": "langchain.anthropic_plus_otel",
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.020798 vs charged $0.006933 (+200%)"
+    },
+    {
+     "scenario": "langchain.anthropic_plus_otel",
+     "check": "standard_attribute_names",
+     "status": "warn",
+     "detail": "non-standard: gen_ai.usage.cache_write.input_tokens"
+    }
+   ]
+  },
+  "langchain · anthropic 1.13": {
+   "scenarios": 2,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 1,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 1,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "tools_traced": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "standard_attribute_names": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": [
+    {
+     "scenario": "langchain.anthropic_plus_otel",
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic (2)"
+    },
+    {
+     "scenario": "langchain.anthropic_plus_otel",
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013865 vs charged $0.006933 (+100%)"
+    }
+   ]
+  },
+  "langchain · langfuse 4.18 / langchain-openai 1.6 / anthropic 0.125": {
+   "scenarios": 3,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 2,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 2,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 3
+    },
+    "standard_attribute_names": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": [
+    {
+     "scenario": "langchain.anthropic_plus_otel",
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic (2)"
+    },
+    {
+     "scenario": "langchain.anthropic_plus_otel",
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013865 vs charged $0.006933 (+100%)"
+    }
+   ]
+  },
+  "langchain · langfuse 3 / langchain 0.3": {
+   "scenarios": 3,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 2,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 2,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 3
+    },
+    "standard_attribute_names": {
+     "pass": 3,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": [
+    {
+     "scenario": "langchain.anthropic_plus_otel",
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic (2)"
+    },
+    {
+     "scenario": "langchain.anthropic_plus_otel",
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013865 vs charged $0.006933 (+100%)"
+    }
+   ]
+  },
+  "pydantic-ai · latest": {
+   "scenarios": 2,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 1,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 1,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 1
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "standard_attribute_names": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 1,
+     "n/a": 0
+    }
+   },
+   "failures": [
+    {
+     "scenario": "pydantic_ai.anthropic_cache",
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from pydantic-ai (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "scenario": "pydantic_ai.anthropic_cache",
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013973 vs charged $0.006987 (+100%)"
+    },
+    {
+     "scenario": "pydantic_ai.anthropic_cache",
+     "check": "standard_attribute_names",
+     "status": "warn",
+     "detail": "non-standard: gen_ai.usage.cache_write.input_tokens"
+    }
+   ]
+  },
+  "pydantic-ai · 2.40 + newest anthropic the installer allows": {
+   "scenarios": 2,
+   "crashed": 1,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 1
+    },
+    "standard_attribute_names": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": [
+    {
+     "scenario": "pydantic_ai.anthropic_cache",
+     "check": "runs",
+     "detail": "TypeError: Cannot instantiate typing.Union"
+    }
+   ]
+  },
+  "pydantic-ai · 2.40 / anthropic 1.17": {
+   "scenarios": 2,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 1,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 1,
+     "fail": 1,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 1
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "standard_attribute_names": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 1,
+     "n/a": 0
+    }
+   },
+   "failures": [
+    {
+     "scenario": "pydantic_ai.anthropic_cache",
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from pydantic-ai (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "scenario": "pydantic_ai.anthropic_cache",
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013973 vs charged $0.006987 (+100%)"
+    },
+    {
+     "scenario": "pydantic_ai.anthropic_cache",
+     "check": "standard_attribute_names",
+     "status": "warn",
+     "detail": "non-standard: gen_ai.usage.cache_write.input_tokens"
+    }
+   ]
+  },
+  "pydantic-ai · 1.107": {
+   "scenarios": 2,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 1
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 2
+    },
+    "standard_attribute_names": {
+     "pass": 2,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": []
+  },
+  "agents sdk · latest": {
+   "scenarios": 1,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 1
+    },
+    "standard_attribute_names": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": []
+  },
+  "agents sdk · 0.20": {
+   "scenarios": 1,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 1
+    },
+    "standard_attribute_names": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": []
+  },
+  "agents sdk · 0.17 + newest openai the installer allows": {
+   "scenarios": 1,
+   "crashed": 1,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "standard_attribute_names": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": [
+    {
+     "scenario": "agents_sdk.tools",
+     "check": "runs",
+     "detail": "pydantic_core._pydantic_core.ValidationError: 1 validation error for InputTokensDetails"
+    }
+   ]
+  },
+  "agents sdk · 0.17 / openai 2.44": {
+   "scenarios": 1,
+   "crashed": 0,
+   "checks": {
+    "one_generation_per_call": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "model_name": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "usage_exact": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "cost_exact": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "readable_io": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "one_trace_per_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "nested_under_run": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "tools_traced": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    },
+    "run_isolation": {
+     "pass": 0,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 1
+    },
+    "standard_attribute_names": {
+     "pass": 1,
+     "fail": 0,
+     "warn": 0,
+     "n/a": 0
+    }
+   },
+   "failures": []
+  }
+ },
+ "cells": [
+  {
+   "env": "openai · latest",
+   "scenario": "openai.chat_cached",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000852 vs charged $0.000852 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · latest",
+   "scenario": "openai.stream",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "1 calls, 1 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000032 vs charged $0.000032 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · latest",
+   "scenario": "openai.tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000153 vs charged $0.000153 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · latest",
+   "scenario": "concurrency.asyncio",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "6 calls, 6 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000192 vs charged $0.000192 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "6 traces for 6 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "pass",
+     "detail": "6 traces for 6 runs, 0 traces mix runs"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · latest",
+   "scenario": "concurrency.threads",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "6 calls, 6 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000192 vs charged $0.000192 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "6 traces for 6 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "pass",
+     "detail": "6 traces for 6 runs, 0 traces mix runs"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 5.0 / openai 3.0",
+   "scenario": "openai.chat_cached",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000852 vs charged $0.000852 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 5.0 / openai 3.0",
+   "scenario": "openai.stream",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "1 calls, 1 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000032 vs charged $0.000032 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 5.0 / openai 3.0",
+   "scenario": "openai.tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000153 vs charged $0.000153 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 5.0 / openai 3.0",
+   "scenario": "concurrency.asyncio",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "6 calls, 6 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000192 vs charged $0.000192 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "6 traces for 6 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "pass",
+     "detail": "6 traces for 6 runs, 0 traces mix runs"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 5.0 / openai 3.0",
+   "scenario": "concurrency.threads",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "6 calls, 6 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000192 vs charged $0.000192 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "6 traces for 6 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "pass",
+     "detail": "6 traces for 6 runs, 0 traces mix runs"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 4.18 / openai 2.54",
+   "scenario": "openai.chat_cached",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000852 vs charged $0.000852 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 4.18 / openai 2.54",
+   "scenario": "openai.stream",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "1 calls, 1 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000032 vs charged $0.000032 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 4.18 / openai 2.54",
+   "scenario": "openai.tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000153 vs charged $0.000153 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 4.18 / openai 2.54",
+   "scenario": "concurrency.asyncio",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "6 calls, 6 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000192 vs charged $0.000192 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "6 traces for 6 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "pass",
+     "detail": "6 traces for 6 runs, 0 traces mix runs"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 4.18 / openai 2.54",
+   "scenario": "concurrency.threads",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "6 calls, 6 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000192 vs charged $0.000192 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "6 traces for 6 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "pass",
+     "detail": "6 traces for 6 runs, 0 traces mix runs"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 3.15 / openai 1.109",
+   "scenario": "openai.chat_cached",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000852 vs charged $0.000852 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 3.15 / openai 1.109",
+   "scenario": "openai.stream",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "1 calls, 1 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000032 vs charged $0.000032 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 3.15 / openai 1.109",
+   "scenario": "openai.tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000153 vs charged $0.000153 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 3.15 / openai 1.109",
+   "scenario": "concurrency.asyncio",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "6 calls, 6 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000192 vs charged $0.000192 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "6 traces for 6 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "pass",
+     "detail": "6 traces for 6 runs, 0 traces mix runs"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "openai · langfuse 3.15 / openai 1.109",
+   "scenario": "concurrency.threads",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "6 calls, 6 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000192 vs charged $0.000192 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "6 traces for 6 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "pass",
+     "detail": "6 traces for 6 runs, 0 traces mix runs"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "langchain · latest",
+   "scenario": "langchain.openai_tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000154 vs charged $0.000154 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "langchain · latest",
+   "scenario": "langchain.anthropic_cache",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013865 vs charged $0.006933 (+100%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "n/a",
+     "detail": "scenario has no wrapping run"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "warn",
+     "detail": "non-standard: gen_ai.usage.cache_write.input_tokens"
+    }
+   ]
+  },
+  {
+   "env": "langchain · latest",
+   "scenario": "langchain.anthropic_plus_otel",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "6 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.020798 vs charged $0.006933 (+200%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "n/a",
+     "detail": "scenario has no wrapping run"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "warn",
+     "detail": "non-standard: gen_ai.usage.cache_write.input_tokens"
+    }
+   ]
+  },
+  {
+   "env": "langchain · anthropic 1.13",
+   "scenario": "langchain.anthropic_cache",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.006933 vs charged $0.006933 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "n/a",
+     "detail": "scenario has no wrapping run"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "langchain · anthropic 1.13",
+   "scenario": "langchain.anthropic_plus_otel",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic (2)"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013865 vs charged $0.006933 (+100%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "n/a",
+     "detail": "scenario has no wrapping run"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "langchain · langfuse 4.18 / langchain-openai 1.6 / anthropic 0.125",
+   "scenario": "langchain.openai_tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000154 vs charged $0.000154 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "langchain · langfuse 4.18 / langchain-openai 1.6 / anthropic 0.125",
+   "scenario": "langchain.anthropic_cache",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.006933 vs charged $0.006933 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "n/a",
+     "detail": "scenario has no wrapping run"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "langchain · langfuse 4.18 / langchain-openai 1.6 / anthropic 0.125",
+   "scenario": "langchain.anthropic_plus_otel",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic (2)"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013865 vs charged $0.006933 (+100%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "n/a",
+     "detail": "scenario has no wrapping run"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "langchain · langfuse 3 / langchain 0.3",
+   "scenario": "langchain.openai_tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000154 vs charged $0.000154 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "langchain · langfuse 3 / langchain 0.3",
+   "scenario": "langchain.anthropic_cache",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.006933 vs charged $0.006933 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "n/a",
+     "detail": "scenario has no wrapping run"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "langchain · langfuse 3 / langchain 0.3",
+   "scenario": "langchain.anthropic_plus_otel",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), opentelemetry.instrumentation.anthropic (2)"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013865 vs charged $0.006933 (+100%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "n/a",
+     "detail": "scenario has no wrapping run"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "pydantic-ai · latest",
+   "scenario": "pydantic_ai.openai_tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000177 vs charged $0.000177 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "pydantic-ai · latest",
+   "scenario": "pydantic_ai.anthropic_cache",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from pydantic-ai (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013973 vs charged $0.006987 (+100%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "warn",
+     "detail": "non-standard: gen_ai.usage.cache_write.input_tokens"
+    }
+   ]
+  },
+  {
+   "env": "pydantic-ai · 2.40 + newest anthropic the installer allows",
+   "scenario": "pydantic_ai.openai_tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000177 vs charged $0.000177 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "pydantic-ai · 2.40 + newest anthropic the installer allows",
+   "scenario": "pydantic_ai.anthropic_cache",
+   "ran": false,
+   "error": "TypeError: Cannot instantiate typing.Union",
+   "results": []
+  },
+  {
+   "env": "pydantic-ai · 2.40 / anthropic 1.17",
+   "scenario": "pydantic_ai.openai_tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000177 vs charged $0.000177 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "pydantic-ai · 2.40 / anthropic 1.17",
+   "scenario": "pydantic_ai.anthropic_cache",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "fail",
+     "detail": "4 generations for 2 calls, from pydantic-ai (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "fail",
+     "detail": "traced $0.013973 vs charged $0.006987 (+100%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "warn",
+     "detail": "non-standard: gen_ai.usage.cache_write.input_tokens"
+    }
+   ]
+  },
+  {
+   "env": "pydantic-ai · 1.107",
+   "scenario": "pydantic_ai.openai_tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000177 vs charged $0.000177 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "pydantic-ai · 1.107",
+   "scenario": "pydantic_ai.anthropic_cache",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.006987 vs charged $0.006987 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "2 traces for 2 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "n/a",
+     "detail": "no tools"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "agents sdk · latest",
+   "scenario": "agents_sdk.tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000185 vs charged $0.000185 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "agents sdk · 0.20",
+   "scenario": "agents_sdk.tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000185 vs charged $0.000185 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  },
+  {
+   "env": "agents sdk · 0.17 + newest openai the installer allows",
+   "scenario": "agents_sdk.tools",
+   "ran": false,
+   "error": "pydantic_core._pydantic_core.ValidationError: 1 validation error for InputTokensDetails",
+   "results": []
+  },
+  {
+   "env": "agents sdk · 0.17 / openai 2.44",
+   "scenario": "agents_sdk.tools",
+   "ran": true,
+   "error": null,
+   "results": [
+    {
+     "check": "one_generation_per_call",
+     "status": "pass",
+     "detail": "2 calls, 2 generations"
+    },
+    {
+     "check": "model_name",
+     "status": "pass",
+     "detail": "all generations name the model that answered"
+    },
+    {
+     "check": "usage_exact",
+     "status": "pass",
+     "detail": "input, cache reads, cache writes and output match every call"
+    },
+    {
+     "check": "cost_exact",
+     "status": "pass",
+     "detail": "traced $0.000185 vs charged $0.000185 (+0%)"
+    },
+    {
+     "check": "readable_io",
+     "status": "pass",
+     "detail": "every generation shows its prompt and answer"
+    },
+    {
+     "check": "one_trace_per_run",
+     "status": "pass",
+     "detail": "1 traces for 1 runs"
+    },
+    {
+     "check": "nested_under_run",
+     "status": "pass",
+     "detail": "every generation has its run as an ancestor"
+    },
+    {
+     "check": "tools_traced",
+     "status": "pass",
+     "detail": "1 tool observations for 1 tool calls"
+    },
+    {
+     "check": "run_isolation",
+     "status": "n/a",
+     "detail": "single run"
+    },
+    {
+     "check": "standard_attribute_names",
+     "status": "pass",
+     "detail": "only standard usage attributes"
+    }
+   ]
+  }
+ ],
+ "bisections": [
+  {
+   "name": "Anthropic SDK starts exporting its own generation spans",
+   "package": "anthropic",
+   "scenario": "langchain.anthropic_cache",
+   "check": "one_generation_per_call",
+   "last_good": "1.13.0",
+   "first_bad": "1.14.0",
+   "tested": [
+    {
+     "version": "2.3.0",
+     "good": false,
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "version": "1.17.0",
+     "good": false,
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "version": "1.15.0",
+     "good": false,
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), com.anthropic.sdk.python (2)"
+    },
+    {
+     "version": "1.14.0",
+     "good": false,
+     "detail": "4 generations for 2 calls, from langfuse-sdk (2), com.anthropic.sdk.python (2)"
+    }
+   ]
+  },
+  {
+   "name": "OpenAI SDK change crashes Agents SDK 0.17",
+   "package": "openai",
+   "scenario": "agents_sdk.tools",
+   "check": null,
+   "last_good": "2.44.0",
+   "first_bad": "2.45.0",
+   "tested": [
+    {
+     "version": "2.40.0",
+     "good": true,
+     "detail": "runs"
+    },
+    {
+     "version": "2.47.0",
+     "good": false,
+     "detail": "crashes:     For further information visit https://errors.pydantic.dev/2.14/v/missing"
+    },
+    {
+     "version": "2.43.0",
+     "good": true,
+     "detail": "runs"
+    },
+    {
+     "version": "2.45.0",
+     "good": false,
+     "detail": "crashes:     For further information visit https://errors.pydantic.dev/2.14/v/missing"
+    },
+    {
+     "version": "2.44.0",
+     "good": true,
+     "detail": "runs"
+    }
+   ]
+  },
+  {
+   "name": "Anthropic SDK change crashes Pydantic AI 2.40",
+   "package": "anthropic",
+   "scenario": "pydantic_ai.anthropic_cache",
+   "check": null,
+   "last_good": "1.17.0",
+   "first_bad": "2.0.0",
+   "tested": [
+    {
+     "version": "2.5.0",
+     "good": false,
+     "detail": "crashes: TypeError: Cannot instantiate typing.Union"
+    },
+    {
+     "version": "2.2.0",
+     "good": false,
+     "detail": "crashes: TypeError: Cannot instantiate typing.Union"
+    },
+    {
+     "version": "2.0.0",
+     "good": false,
+     "detail": "crashes: TypeError: Cannot instantiate typing.Union"
+    }
+   ]
+  }
+ ],
+ "fault_study": {
+  "clean_cells": 34,
+  "kinds": {
+   "attribute_renamed": {
+    "planted": 30,
+    "caught": 30,
+    "attributed": 30,
+    "recall": 1.0,
+    "example": "pydantic_ai.openai_tools (pydantic-ai · latest): cost_exact, standard_attribute_names, usage_exact"
+   },
+   "cache_double_count": {
+    "planted": 48,
+    "caught": 48,
+    "attributed": 48,
+    "recall": 1.0,
+    "example": "openai.chat_cached (openai · latest): cost_exact, usage_exact"
+   },
+   "cache_dropped": {
+    "planted": 48,
+    "caught": 48,
+    "attributed": 48,
+    "recall": 1.0,
+    "example": "openai.chat_cached (openai · latest): cost_exact, usage_exact"
+   },
+   "context_lost": {
+    "planted": 186,
+    "caught": 186,
+    "attributed": 186,
+    "recall": 1.0,
+    "example": "openai.chat_cached (openai · latest): nested_under_run, one_trace_per_run"
+   },
+   "duplicate_generation": {
+    "planted": 204,
+    "caught": 204,
+    "attributed": 204,
+    "recall": 1.0,
+    "example": "openai.chat_cached (openai · latest): cost_exact, one_generation_per_call"
+   },
+   "first_token_time_missing": {
+    "planted": 24,
+    "caught": 0,
+    "attributed": 0,
+    "recall": 0.0,
+    "example": null
+   },
+   "latency_zero": {
+    "planted": 204,
+    "caught": 31,
+    "attributed": 0,
+    "recall": 0.152,
+    "example": "openai.stream (openai · latest): one_generation_per_call"
+   },
+   "model_missing": {
+    "planted": 204,
+    "caught": 204,
+    "attributed": 204,
+    "recall": 1.0,
+    "example": "openai.chat_cached (openai · latest): cost_exact, model_name"
+   },
+   "object_object_output": {
+    "planted": 204,
+    "caught": 204,
+    "attributed": 204,
+    "recall": 1.0,
+    "example": "openai.chat_cached (openai · latest): readable_io"
+   },
+   "parent_never_exported": {
+    "planted": 186,
+    "caught": 186,
+    "attributed": 186,
+    "recall": 1.0,
+    "example": "openai.chat_cached (openai · latest): nested_under_run, one_trace_per_run"
+   },
+   "runs_mixed": {
+    "planted": 72,
+    "caught": 72,
+    "attributed": 48,
+    "recall": 1.0,
+    "example": "concurrency.asyncio (openai · latest): one_trace_per_run, run_isolation"
+   },
+   "tool_span_missing": {
+    "planted": 84,
+    "caught": 84,
+    "attributed": 84,
+    "recall": 1.0,
+    "example": "openai.tools (openai · latest): tools_traced"
+   },
+   "usage_missing": {
+    "planted": 204,
+    "caught": 204,
+    "attributed": 204,
+    "recall": 1.0,
+    "example": "openai.chat_cached (openai · latest): cost_exact, usage_exact"
+   }
+  },
+  "overall_recall": 0.884,
+  "attribution": 0.963,
+  "benign_changes": 510,
+  "false_alarms": 0,
+  "false_alarm_rate": 0.0,
+  "covered_recall": 1.0
+ },
+ "triage": {
+  "agent": {
+   "issues": 467,
+   "labelled": 88,
+   "micro": {
+    "precision": 0.741,
+    "recall": 0.825,
+    "f1": 0.78
+   },
+   "per_label": {
+    "integration-langchain": {
+     "precision": 0.833,
+     "recall": 1.0,
+     "f1": 0.909,
+     "support": 15
+    },
+    "integration-litellm": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 2
+    },
+    "integration-mcp-server": {
+     "precision": 0.875,
+     "recall": 0.933,
+     "f1": 0.903,
+     "support": 15
+    },
+    "integration-openai": {
+     "precision": 0.667,
+     "recall": 0.824,
+     "f1": 0.737,
+     "support": 17
+    },
+    "integration-otel": {
+     "precision": 0.667,
+     "recall": 0.683,
+     "f1": 0.675,
+     "support": 41
+    },
+    "integration-pydantic-ai": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "support": 3
+    },
+    "integration-vercel-ai-sdk": {
+     "precision": 0.667,
+     "recall": 1.0,
+     "f1": 0.8,
+     "support": 4
+    }
+   },
+   "cost_symptom": {
+    "precision": 0.421,
+    "recall": 0.941,
+    "f1": 0.582
+   }
+  },
+  "naive": {
+   "issues": 467,
+   "labelled": 88,
+   "micro": {
+    "precision": 0.55,
+    "recall": 0.907,
+    "f1": 0.685
+   },
+   "per_label": {
+    "integration-langchain": {
+     "precision": 0.6,
+     "recall": 1.0,
+     "f1": 0.75,
+     "support": 15
+    },
+    "integration-litellm": {
+     "precision": 0.222,
+     "recall": 1.0,
+     "f1": 0.364,
+     "support": 2
+    },
+    "integration-mcp-server": {
+     "precision": 0.875,
+     "recall": 0.933,
+     "f1": 0.903,
+     "support": 15
+    },
+    "integration-openai": {
+     "precision": 0.609,
+     "recall": 0.824,
+     "f1": 0.7,
+     "support": 17
+    },
+    "integration-otel": {
+     "precision": 0.529,
+     "recall": 0.878,
+     "f1": 0.661,
+     "support": 41
+    },
+    "integration-pydantic-ai": {
+     "precision": 0.6,
+     "recall": 1.0,
+     "f1": 0.75,
+     "support": 3
+    },
+    "integration-vercel-ai-sdk": {
+     "precision": 0.286,
+     "recall": 1.0,
+     "f1": 0.444,
+     "support": 4
+    }
+   },
+   "cost_symptom": {
+    "precision": 0.421,
+    "recall": 0.941,
+    "f1": 0.582
+   }
+  },
+  "split_date": "2026-09-01"
+ },
+ "simulation": {
+  "status_quo": {
+   "label": "Today: users report it, a maintainer reproduces and bisects by hand",
+   "bugs_per_seed": 15.35,
+   "reached_users_share": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "caught_by_lab_share": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exposure_project_days": [
+    275106.4641,
+    244363.4938,
+    303971.9146
+   ],
+   "exposure_cut_vs_status_quo": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "wrong_cost_cut_vs_status_quo": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "median_days_release_to_fix": 10.56,
+   "issues_filed": [
+    89.5,
+    79.65,
+    98.5
+   ],
+   "maintainer_hours_per_week": [
+    5.6346,
+    5.0962,
+    6.0962
+   ]
+  },
+  "agent_only": {
+   "label": "Triage agent on incoming issues, no conformance runs",
+   "bugs_per_seed": 15.35,
+   "reached_users_share": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "caught_by_lab_share": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exposure_project_days": [
+    243344.2288,
+    216595.7624,
+    268216.8621
+   ],
+   "exposure_cut_vs_status_quo": [
+    0.1145,
+    0.1099,
+    0.1193
+   ],
+   "wrong_cost_cut_vs_status_quo": [
+    0.112,
+    0.0963,
+    0.1264
+   ],
+   "median_days_release_to_fix": 9.17,
+   "issues_filed": [
+    79.55,
+    71.0,
+    87.35
+   ],
+   "maintainer_hours_per_week": [
+    4.8587,
+    4.3885,
+    5.2981
+   ]
+  },
+  "nightly": {
+   "label": "Nightly conformance runs on each new release, with bisect",
+   "bugs_per_seed": 15.35,
+   "reached_users_share": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "caught_by_lab_share": [
+    0.429,
+    0.3737,
+    0.4845
+   ],
+   "exposure_project_days": [
+    177779.36,
+    155377.3178,
+    199431.8927
+   ],
+   "exposure_cut_vs_status_quo": [
+    0.3463,
+    0.291,
+    0.4012
+   ],
+   "wrong_cost_cut_vs_status_quo": [
+    0.3464,
+    0.2745,
+    0.4089
+   ],
+   "median_days_release_to_fix": 6.37,
+   "issues_filed": [
+    61.95,
+    54.7,
+    69.05
+   ],
+   "maintainer_hours_per_week": [
+    5.8837,
+    5.4163,
+    6.3471
+   ]
+  },
+  "nightly_main": {
+   "label": "Nightly runs on releases and on each framework's main branch",
+   "bugs_per_seed": 15.35,
+   "reached_users_share": [
+    0.659,
+    0.6093,
+    0.7091
+   ],
+   "caught_by_lab_share": [
+    0.4352,
+    0.378,
+    0.4907
+   ],
+   "exposure_project_days": [
+    144746.187,
+    121842.9885,
+    168626.1629
+   ],
+   "exposure_cut_vs_status_quo": [
+    0.4677,
+    0.3954,
+    0.5401
+   ],
+   "wrong_cost_cut_vs_status_quo": [
+    0.4805,
+    0.3829,
+    0.5656
+   ],
+   "median_days_release_to_fix": 6.37,
+   "issues_filed": [
+    48.3,
+    40.9,
+    56.0
+   ],
+   "maintainer_hours_per_week": [
+    5.8625,
+    5.399,
+    6.3269
+   ]
+  },
+  "lab": {
+   "label": "The lab: nightly on releases and main, bisect, triage agent",
+   "bugs_per_seed": 15.35,
+   "reached_users_share": [
+    0.659,
+    0.6093,
+    0.7091
+   ],
+   "caught_by_lab_share": [
+    0.4352,
+    0.378,
+    0.4907
+   ],
+   "exposure_project_days": [
+    130468.4568,
+    110333.5575,
+    151120.1703
+   ],
+   "exposure_cut_vs_status_quo": [
+    0.5195,
+    0.4557,
+    0.5842
+   ],
+   "wrong_cost_cut_vs_status_quo": [
+    0.5266,
+    0.4353,
+    0.6058
+   ],
+   "median_days_release_to_fix": 5.43,
+   "issues_filed": [
+    43.65,
+    36.95,
+    50.45
+   ],
+   "maintainer_hours_per_week": [
+    5.6981,
+    5.2606,
+    6.1327
+   ]
+  }
+ },
+ "gates": [
+  {
+   "gate": "recall on the bug kinds the checks cover at least 95%",
+   "measured": 1.0,
+   "pass": true
+  },
+  {
+   "gate": "false alarms on harmless changes at most 1%",
+   "measured": 0.0,
+   "pass": true
+  },
+  {
+   "gate": "triage F1 against maintainers' labels at least 0.65",
+   "measured": 0.78,
+   "pass": true
+  },
+  {
+   "gate": "lab cuts project-days on broken traces by at least 25% (low end of the interval)",
+   "measured": 0.4557,
+   "pass": true
+  },
+  {
+   "gate": "lab maintainer hours at most 110% of today's",
+   "measured": 1.011,
+   "pass": true
+  }
+ ]
+}

@@ -1,0 +1,236 @@
+{
+  "_comment": "Development environments: pinned SDK sets, each running its family's scenarios. Held-out environments are in config/heldout.json and run once.",
+  "environments": [
+    {
+      "name": "openai · latest",
+      "family": "openai",
+      "pins": {
+        "langfuse": "5.2.0",
+        "openai": "3.57.0"
+      },
+      "scenarios": [
+        "openai.chat_cached",
+        "openai.stream",
+        "openai.tools",
+        "concurrency.asyncio",
+        "concurrency.threads"
+      ]
+    },
+    {
+      "name": "openai · langfuse 5.0 / openai 3.0",
+      "family": "openai",
+      "pins": {
+        "langfuse": "5.0.1",
+        "openai": "3.0.0"
+      },
+      "scenarios": [
+        "openai.chat_cached",
+        "openai.stream",
+        "openai.tools",
+        "concurrency.asyncio",
+        "concurrency.threads"
+      ]
+    },
+    {
+      "name": "openai · langfuse 4.18 / openai 2.54",
+      "family": "openai",
+      "pins": {
+        "langfuse": "4.18.0",
+        "openai": "2.54.0"
+      },
+      "scenarios": [
+        "openai.chat_cached",
+        "openai.stream",
+        "openai.tools",
+        "concurrency.asyncio",
+        "concurrency.threads"
+      ]
+    },
+    {
+      "name": "openai · langfuse 3.15 / openai 1.109",
+      "family": "openai",
+      "pins": {
+        "langfuse": "3.15.0",
+        "openai": "1.109.1"
+      },
+      "scenarios": [
+        "openai.chat_cached",
+        "openai.stream",
+        "openai.tools",
+        "concurrency.asyncio",
+        "concurrency.threads"
+      ]
+    },
+    {
+      "name": "langchain · latest",
+      "family": "langchain",
+      "pins": {
+        "langfuse": "5.2.0",
+        "langchain-core": "1.8.4",
+        "langchain-openai": "1.8.5",
+        "langchain-anthropic": "1.7.12",
+        "anthropic": "2.12.0",
+        "openai": "3.57.0",
+        "opentelemetry-instrumentation-anthropic": "0.63.1"
+      },
+      "scenarios": [
+        "langchain.openai_tools",
+        "langchain.anthropic_cache",
+        "langchain.anthropic_plus_otel"
+      ]
+    },
+    {
+      "name": "langchain · anthropic 1.13",
+      "family": "langchain",
+      "pins": {
+        "langfuse": "5.2.0",
+        "langchain-core": "1.8.4",
+        "langchain-openai": "1.8.5",
+        "langchain-anthropic": "1.7.12",
+        "anthropic": "1.13.0",
+        "openai": "3.57.0",
+        "opentelemetry-instrumentation-anthropic": "0.63.1"
+      },
+      "scenarios": [
+        "langchain.anthropic_cache",
+        "langchain.anthropic_plus_otel"
+      ]
+    },
+    {
+      "name": "langchain · langfuse 4.18 / langchain-openai 1.6 / anthropic 0.125",
+      "family": "langchain",
+      "pins": {
+        "langfuse": "4.18.0",
+        "langchain": "1.0.8",
+        "langchain-core": "1.8.4",
+        "langchain-openai": "1.6.7",
+        "langchain-anthropic": "1.6.1",
+        "openai": "2.54.0",
+        "anthropic": "0.125.0",
+        "opentelemetry-instrumentation-anthropic": "0.58.1"
+      },
+      "scenarios": [
+        "langchain.openai_tools",
+        "langchain.anthropic_cache",
+        "langchain.anthropic_plus_otel"
+      ]
+    },
+    {
+      "name": "langchain · langfuse 3 / langchain 0.3",
+      "family": "langchain",
+      "pins": {
+        "langfuse": "3.15.0",
+        "langchain-core": "0.3.86",
+        "langchain-openai": "0.3.35",
+        "langchain-anthropic": "0.3.22",
+        "openai": "1.109.1",
+        "opentelemetry-instrumentation-anthropic": "0.58.1",
+        "langchain": "0.3.27"
+      },
+      "scenarios": [
+        "langchain.openai_tools",
+        "langchain.anthropic_cache",
+        "langchain.anthropic_plus_otel"
+      ]
+    },
+    {
+      "name": "pydantic-ai · latest",
+      "family": "pydantic_ai",
+      "pins": {
+        "langfuse": "5.2.0",
+        "pydantic-ai-slim[openai,anthropic]": "2.71.0",
+        "anthropic": "2.12.0"
+      },
+      "scenarios": [
+        "pydantic_ai.openai_tools",
+        "pydantic_ai.anthropic_cache"
+      ]
+    },
+    {
+      "name": "pydantic-ai · 2.40 + newest anthropic the installer allows",
+      "family": "pydantic_ai",
+      "pins": {
+        "langfuse": "4.18.0",
+        "pydantic-ai-slim[openai,anthropic]": "2.40.0"
+      },
+      "scenarios": [
+        "pydantic_ai.openai_tools",
+        "pydantic_ai.anthropic_cache"
+      ]
+    },
+    {
+      "name": "pydantic-ai · 2.40 / anthropic 1.17",
+      "family": "pydantic_ai",
+      "pins": {
+        "langfuse": "4.18.0",
+        "pydantic-ai-slim[openai,anthropic]": "2.40.0",
+        "anthropic": "1.17.0"
+      },
+      "scenarios": [
+        "pydantic_ai.openai_tools",
+        "pydantic_ai.anthropic_cache"
+      ]
+    },
+    {
+      "name": "pydantic-ai · 1.107",
+      "family": "pydantic_ai",
+      "pins": {
+        "langfuse": "3.15.0",
+        "pydantic-ai-slim[openai,anthropic]": "1.107.10"
+      },
+      "scenarios": [
+        "pydantic_ai.openai_tools",
+        "pydantic_ai.anthropic_cache"
+      ]
+    },
+    {
+      "name": "agents sdk · latest",
+      "family": "agents_sdk",
+      "pins": {
+        "langfuse": "5.2.0",
+        "openai-agents": "0.25.0",
+        "openinference-instrumentation-openai-agents": "2.8.7"
+      },
+      "scenarios": [
+        "agents_sdk.tools"
+      ]
+    },
+    {
+      "name": "agents sdk · 0.20",
+      "family": "agents_sdk",
+      "pins": {
+        "langfuse": "4.18.0",
+        "openai-agents": "0.20.0",
+        "openinference-instrumentation-openai-agents": "2.4.0"
+      },
+      "scenarios": [
+        "agents_sdk.tools"
+      ]
+    },
+    {
+      "name": "agents sdk · 0.17 + newest openai the installer allows",
+      "family": "agents_sdk",
+      "pins": {
+        "langfuse": "3.15.0",
+        "openai-agents": "0.17.0",
+        "openinference-instrumentation-openai-agents": "1.6.2"
+      },
+      "scenarios": [
+        "agents_sdk.tools"
+      ]
+    },
+    {
+      "name": "agents sdk · 0.17 / openai 2.44",
+      "family": "agents_sdk",
+      "pins": {
+        "langfuse": "3.15.0",
+        "openai-agents": "0.17.0",
+        "openinference-instrumentation-openai-agents": "1.6.2",
+        "openai": "2.44.0"
+      },
+      "scenarios": [
+        "agents_sdk.tools"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "_comment": "dev is used while building; heldout runs once, behind heldout.lock. Simulation seeds are the release histories; fault seeds pick where faults are planted.",
+  "dev": {"simulation": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "faults": [1, 2, 3]},
+  "heldout": {"simulation": [9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108, 9109, 9110, 9111, 9112, 9113, 9114, 9115, 9116, 9117, 9118, 9119, 9120], "faults": [9101, 9102, 9103]}
+}

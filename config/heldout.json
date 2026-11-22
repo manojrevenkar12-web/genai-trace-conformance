@@ -1,0 +1,10 @@
+{
+  "_comment": "Held-out environments: SDK versions never run during development, chosen before the held-out run.",
+  "environments": [
+    {"name": "openai · langfuse 5.1 / openai 3.30", "family": "openai", "pins": {"langfuse": "5.1.0", "openai": "3.30.0"}, "scenarios": ["openai.chat_cached", "openai.stream", "openai.tools", "concurrency.asyncio", "concurrency.threads"]},
+    {"name": "openai · langfuse 4.10 / openai 2.30", "family": "openai", "pins": {"langfuse": "4.10.0", "openai": "2.30.0"}, "scenarios": ["openai.chat_cached", "openai.stream", "openai.tools", "concurrency.asyncio", "concurrency.threads"]},
+    {"name": "langchain · langfuse 5.1 / langchain 1.7 / anthropic 2.5", "family": "langchain", "pins": {"langfuse": "5.1.0", "langchain-core": "1.7.7", "langchain-openai": "1.7.4", "langchain-anthropic": "1.7.8", "anthropic": "2.5.0", "openai": "3.30.0", "opentelemetry-instrumentation-anthropic": "0.62.4"}, "scenarios": ["langchain.openai_tools", "langchain.anthropic_cache", "langchain.anthropic_plus_otel"]},
+    {"name": "pydantic-ai · 2.60 / anthropic 2.8", "family": "pydantic_ai", "pins": {"langfuse": "5.0.4", "pydantic-ai-slim[openai,anthropic]": "2.60.0", "anthropic": "2.8.0"}, "scenarios": ["pydantic_ai.openai_tools", "pydantic_ai.anthropic_cache"]},
+    {"name": "agents sdk · 0.22 / openinference 2.7", "family": "agents_sdk", "pins": {"langfuse": "5.1.0", "openai-agents": "0.22.3", "openinference-instrumentation-openai-agents": "2.7.1"}, "scenarios": ["agents_sdk.tools"]}
+  ]
+}

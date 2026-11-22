@@ -1,0 +1,8 @@
+{
+  "_comment": "Set on the development run before the held-out run. Never loosened after it.",
+  "coveredKindRecallMin": 0.95,
+  "falseAlarmRateMax": 0.01,
+  "triageF1Min": 0.65,
+  "labExposureCutLowMin": 0.25,
+  "labHoursMaxShareOfStatusQuo": 1.10
+}

@@ -1,0 +1,14 @@
+{
+  "_comment": "What each scenario must produce. runs: traces with model calls; tools: tool observations; wrapped: generations sit under a root run span; isolated: each run's calls carry their own marker and land in their own trace.",
+  "openai.chat_cached":        {"integration": "Langfuse OpenAI wrapper",      "family": "openai",      "runs": 1, "tools": 0, "wrapped": true,  "isolated": false},
+  "openai.stream":             {"integration": "Langfuse OpenAI wrapper",      "family": "openai",      "runs": 1, "tools": 0, "wrapped": true,  "isolated": false},
+  "openai.tools":              {"integration": "Langfuse OpenAI wrapper",      "family": "openai",      "runs": 1, "tools": 1, "wrapped": true,  "isolated": false},
+  "langchain.openai_tools":    {"integration": "LangChain CallbackHandler",    "family": "langchain",   "runs": 1, "tools": 1, "wrapped": true,  "isolated": false},
+  "langchain.anthropic_cache": {"integration": "LangChain CallbackHandler",    "family": "langchain",   "runs": 2, "tools": 0, "wrapped": false, "isolated": false},
+  "langchain.anthropic_plus_otel": {"integration": "LangChain + Anthropic OTel instrumentor", "family": "langchain", "runs": 2, "tools": 0, "wrapped": false, "isolated": false},
+  "pydantic_ai.openai_tools":  {"integration": "Pydantic AI OpenTelemetry",    "family": "pydantic_ai", "runs": 1, "tools": 1, "wrapped": true,  "isolated": false},
+  "pydantic_ai.anthropic_cache": {"integration": "Pydantic AI OpenTelemetry",  "family": "pydantic_ai", "runs": 2, "tools": 0, "wrapped": true,  "isolated": false},
+  "agents_sdk.tools":          {"integration": "OpenAI Agents SDK + OpenInference", "family": "agents_sdk", "runs": 1, "tools": 1, "wrapped": true, "isolated": false},
+  "concurrency.asyncio":       {"integration": "Langfuse OpenAI wrapper, asyncio",  "family": "openai", "runs": 6, "tools": 0, "wrapped": true, "isolated": true},
+  "concurrency.threads":       {"integration": "Langfuse OpenAI wrapper, threads",  "family": "openai", "runs": 6, "tools": 0, "wrapped": true, "isolated": true}
+}

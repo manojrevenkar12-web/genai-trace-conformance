@@ -1,0 +1,204 @@
+{
+  "_comment": "The triage agent's rules. Tuned on issues created before 2026-09-01 only; issues from 2026-09-01 are held out. Patterns are case-insensitive regular expressions.",
+  "split_date": "2026-09-01",
+  "labels": {
+    "integration-otel": {
+      "title": [
+        "\\botel\\b",
+        "opentelemetry",
+        "span processor",
+        "semconv",
+        "gen_ai\\.",
+        "openinference",
+        "instrument",
+        "\\badk\\b",
+        "otlp"
+      ],
+      "code": [
+        "opentelemetry",
+        "OTEL_",
+        "TracerProvider",
+        "SpanProcessor",
+        "openinference",
+        "gen_ai\\.",
+        "/api/public/otel"
+      ],
+      "body": [
+        "opentelemetry",
+        "\\botel\\b",
+        "otlp"
+      ]
+    },
+    "integration-openai": {
+      "title": [
+        "\\bopenai\\b",
+        "responses api",
+        "\\bgpt-[\\w.]+",
+        "chat\\.completions",
+        "azure openai"
+      ],
+      "code": [
+        "langfuse\\.openai",
+        "from langfuse.openai",
+        "observeOpenAI",
+        "AzureOpenAI",
+        "openai\\.OpenAI"
+      ],
+      "body": []
+    },
+    "integration-langchain": {
+      "title": [
+        "langchain",
+        "langgraph",
+        "callbackhandler",
+        "callback handler"
+      ],
+      "code": [
+        "langfuse\\.langchain",
+        "langchain",
+        "langgraph",
+        "CallbackHandler"
+      ],
+      "body": [
+        "langchain",
+        "langgraph"
+      ]
+    },
+    "integration-vercel-ai-sdk": {
+      "title": [
+        "\\bai sdk\\b",
+        "vercel",
+        "ai-sdk",
+        "experimental_telemetry"
+      ],
+      "code": [
+        "@ai-sdk/",
+        "from \"ai\"",
+        "from 'ai'",
+        "experimental_telemetry",
+        "@vercel/otel"
+      ],
+      "body": [
+        "vercel ai",
+        "ai sdk"
+      ]
+    },
+    "integration-pydantic-ai": {
+      "title": [
+        "pydantic[- ]?ai",
+        "pydanticai"
+      ],
+      "code": [
+        "pydantic_ai",
+        "Agent\\.instrument_all",
+        "logfire"
+      ],
+      "body": [
+        "pydantic[- ]?ai"
+      ]
+    },
+    "integration-litellm": {
+      "title": [
+        "litellm"
+      ],
+      "code": [
+        "litellm"
+      ],
+      "body": [
+        "litellm"
+      ]
+    },
+    "integration-mcp-server": {
+      "title": [
+        "\\bmcp\\b"
+      ],
+      "code": [
+        "/api/public/mcp",
+        "tools/list"
+      ],
+      "body": [
+        "/api/public/mcp"
+      ]
+    }
+  },
+  "weights": {
+    "title": 3,
+    "code": 2,
+    "body": 1
+  },
+  "threshold": 3,
+  "symptoms": {
+    "duplicate_generation": [
+      "duplicat",
+      "twice",
+      "double[ds]?\\b(?!.*cache)",
+      "two generations",
+      "counted twice"
+    ],
+    "cache_double_count": [
+      "cache\\w*.{0,40}(double|twice|inflat|over)",
+      "(double|twice|inflat).{0,40}cache"
+    ],
+    "cache_dropped": [
+      "cache\\w*.{0,40}(drop|missing|lost|ignored|0\\b|zero|not (?:tracked|recorded|captured))",
+      "(drop|missing|ignor).{0,40}cache"
+    ],
+    "unreadable_io": [
+      "\\[object object\\]",
+      "raw json",
+      "blank i/?o",
+      "render",
+      "not display",
+      "empty (?:input|output)",
+      "serializ"
+    ],
+    "context_lost": [
+      "context",
+      "parent",
+      "nested",
+      "separate traces?",
+      "orphan",
+      "trace_id",
+      "trace id",
+      "not linked",
+      "propagat"
+    ],
+    "model_name": [
+      "model name",
+      "parse the llm model",
+      "unknown model",
+      "not recognize",
+      "model.{0,20}missing"
+    ],
+    "cost_wrong": [
+      "\\bcost",
+      "pric",
+      "billing",
+      "token count",
+      "usage"
+    ],
+    "tool_missing": [
+      "\\btools?\\b.{0,30}(missing|not|dropped)",
+      "tool call"
+    ]
+  },
+  "symptom_to_check": {
+    "duplicate_generation": "one_generation_per_call",
+    "cache_double_count": "usage_exact",
+    "cache_dropped": "usage_exact",
+    "unreadable_io": "readable_io",
+    "context_lost": "one_trace_per_run",
+    "model_name": "model_name",
+    "cost_wrong": "cost_exact",
+    "tool_missing": "tools_traced"
+  },
+  "label_to_family": {
+    "integration-openai": "openai",
+    "integration-langchain": "langchain",
+    "integration-pydantic-ai": "pydantic_ai",
+    "integration-otel": null,
+    "integration-vercel-ai-sdk": null,
+    "integration-litellm": null,
+    "integration-mcp-server": null
+  }
+}

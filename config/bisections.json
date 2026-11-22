@@ -1,0 +1,45 @@
+{
+  "_comment": "Bisections run by the evaluation: the first release of [package] that breaks [scenario] ([check], or a crash when check is null), all other pins fixed.",
+  "bisections": [
+    {
+      "name": "Anthropic SDK starts exporting its own generation spans",
+      "package": "anthropic",
+      "good": "1.13.0",
+      "bad": "2.12.0",
+      "scenario": "langchain.anthropic_cache",
+      "check": "one_generation_per_call",
+      "pins": {
+        "langfuse": "5.2.0",
+        "langchain-core": "1.8.4",
+        "langchain-openai": "1.8.5",
+        "langchain-anthropic": "1.7.12",
+        "openai": "3.57.0"
+      }
+    },
+    {
+      "name": "OpenAI SDK change crashes Agents SDK 0.17",
+      "package": "openai",
+      "good": "2.26.0",
+      "bad": "2.54.0",
+      "scenario": "agents_sdk.tools",
+      "check": null,
+      "pins": {
+        "langfuse": "3.15.0",
+        "openai-agents": "0.17.0",
+        "openinference-instrumentation-openai-agents": "1.6.2"
+      }
+    },
+    {
+      "name": "Anthropic SDK change crashes Pydantic AI 2.40",
+      "package": "anthropic",
+      "good": "1.17.0",
+      "bad": "2.12.0",
+      "scenario": "pydantic_ai.anthropic_cache",
+      "check": null,
+      "pins": {
+        "langfuse": "4.18.0",
+        "pydantic-ai-slim[openai,anthropic]": "2.40.0"
+      }
+    }
+  ]
+}

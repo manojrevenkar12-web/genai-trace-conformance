@@ -44,7 +44,7 @@ def tables(doc: dict[str, Any]) -> str:
     out += [f"| {k.replace('_', ' ')} | {v['planted']} | {v['caught']} | {v['recall']:.0%} |" for k, v in fs["kinds"].items()]
     out += [
         "",
-        f"Harmless changes (reordered exports, extra HTTP spans, extra attributes, renamed spans, 3 ms clock jitter): {fs['benign_changes']}, false alarms: {fs['false_alarms']}.",
+        f"Harmless changes (reordered exports, extra HTTP spans, extra attributes, renamed spans, 3 ms clock skew): {fs['benign_changes']}, false alarms: {fs['false_alarms']}.",
         "",
     ]
     t = doc["triage"]

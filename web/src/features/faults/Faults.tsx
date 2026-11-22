@@ -13,7 +13,7 @@ export function Faults({ report }: { report: Report }) {
           where the lab stops.
         </p>
         <p className={styles.fa}>
-          <strong>{fs.false_alarms}</strong> false alarms on {fs.benign_changes} harmless changes: reordered exports, extra HTTP spans, extra attributes, renamed spans, 3 ms of clock jitter.
+          <strong>{fs.false_alarms}</strong> false alarms on {fs.benign_changes} harmless changes: reordered exports, extra HTTP spans, extra attributes, renamed spans, 3 ms of clock skew.
         </p>
       </div>
       <ul className={styles.list}>

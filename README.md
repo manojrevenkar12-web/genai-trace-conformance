@@ -88,7 +88,7 @@ On 16 development environments (34 pinned SDK versions), 41 of 43 scenario runs 
 | tool span missing | 84 | 84 | 100% |
 | usage missing | 204 | 204 | 100% |
 
-Harmless changes (reordered exports, extra HTTP spans, extra attributes, renamed spans, 3 ms clock jitter): 510, false alarms: 0.
+Harmless changes (reordered exports, extra HTTP spans, extra attributes, renamed spans, 3 ms clock skew): 510, false alarms: 0.
 
 | Triage against maintainers' integration labels | Issues | Precision | Recall | F1 |
 |---|---|---|---|---|

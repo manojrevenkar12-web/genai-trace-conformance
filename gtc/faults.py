@@ -260,10 +260,12 @@ def renamed_spans(spans: Spans, r: random.Random) -> Spans:
     return out
 
 
-def clock_jitter(spans: Spans, r: random.Random) -> Spans:
+def clock_skew(spans: Spans, r: random.Random) -> Spans:
+    """The exporting host's clock is off by up to 3 ms. Skew is one offset per host, not noise per span: two identical
+    calls a millisecond apart cannot be told apart by any backend once per-span noise exceeds that gap."""
     out = copy.deepcopy(spans)
+    d = r.choice([-1, 1]) * r.randint(1_000_000, 3_000_000)
     for s in out:
-        d = r.randint(-3_000_000, 3_000_000)
         s["start_ns"] += d
         s["end_ns"] += d
     return out
@@ -274,5 +276,5 @@ BENIGN: dict[str, Callable[[Spans, random.Random], Spans]] = {
     "http_client_spans": extra_http_spans,
     "extra_attributes": extra_attributes,
     "renamed_spans": renamed_spans,
-    "clock_jitter_3ms": clock_jitter,
+    "clock_skew_3ms": clock_skew,
 }

@@ -3,9 +3,11 @@
 **Status:** accepted
 
 A trace can look plausible and still be wrong: two generations for one call, cache reads billed as fresh input. The
-checks therefore compare the mapped observations with the server's ledger, call by call. Generations are matched to calls
-by the time window they enclose, one per call first (closest pairs), and only then are leftovers attached as duplicates,
-so two calls a few milliseconds apart cannot swap.
+checks therefore compare the mapped observations with the server's ledger, call by call. A generation should enclose
+the request it represents, so generations are matched to calls by how far each call falls outside a generation's span,
+one generation per call, with the assignment chosen for the whole run at once; only then are leftover generations
+attached as duplicates. Closest-pair matching was tried first and swapped two calls a few milliseconds apart once a
+3 ms clock skew was applied; the whole-run assignment does not.
 
 The mapping from spans to observations is a reference written from the specifications (OpenTelemetry GenAI conventions,
 OpenInference, Langfuse's usage_details keys), not Langfuse's server code. Where the specifications leave room, the lab

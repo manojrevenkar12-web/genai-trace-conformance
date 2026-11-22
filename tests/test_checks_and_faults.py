@@ -145,3 +145,13 @@ def test_anthropic_sdk_duplicates_langchain_generations_today(harness):
     assert res["one_generation_per_call"].status == "fail" and "com.anthropic.sdk.python" in res["one_generation_per_call"].detail
     assert res["usage_exact"].status == "pass"  # the integration's own generation is right; the extra one doubles cost
     assert res["cost_exact"].status == "fail"
+
+
+def test_skewed_clock_still_matches_each_call_to_its_generation():
+    """From a real capture shifted by -3 ms: the first generation now encloses both calls and the second encloses
+    neither. Greedy matching swaps them; the whole-run assignment does not."""
+    ms = 1_000_000
+    calls = [call(0, 0 * ms, int(0.16 * ms)), call(1, int(6.31 * ms), int(6.5 * ms))]
+    g1, g2 = gen("a", int(-3.66 * ms), int(6.68 * ms)), gen("b", int(6.9 * ms), int(9.61 * ms))
+    by_call, phantom = assign(calls, [map_span(g1), map_span(g2)])
+    assert [o.span_id for o in by_call[0]] == ["a"] and [o.span_id for o in by_call[1]] == ["b"] and not phantom

@@ -6,6 +6,7 @@ check never reads the scenario's code, only its declared expectations in config/
 
 from __future__ import annotations
 
+import functools
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from typing import Any
@@ -69,16 +70,15 @@ def assign(calls: list[dict[str, Any]], gens: list[Observation]) -> tuple[dict[i
         marked = [c for c in fits if c["marker"] and f"[run:{c['marker']}]" in text]
         return marked if len({c["marker"] for c in marked}) == 1 else fits
 
-    def gap(g: Observation, c: dict[str, Any]) -> int:
-        return int(abs(c["received_ns"] - g.start_ns) + abs(g.end_ns - c["finished_ns"]))
+    def gap(g: Observation, c: dict[str, Any]) -> tuple[int, int]:
+        # first: how far the call falls outside the generation (0 when the generation encloses it); then: edge distance
+        outside = max(0, g.start_ns - c["received_ns"]) + max(0, c["finished_ns"] - g.end_ns)
+        return int(outside), int(abs(c["received_ns"] - g.start_ns) + abs(g.end_ns - c["finished_ns"]))
 
     cands = {id(g): candidates(g) for g in gens}
-    pairs = sorted(((gap(g, c), gi, c["seq"]) for gi, g in enumerate(gens) for c in cands[id(g)]), key=lambda p: (p[0], p[1], p[2]))
     by_call: dict[int, list[Observation]] = defaultdict(list)
     used_g: set[int] = set()
-    for _, gi, seq in pairs:
-        if gi in used_g or seq in by_call:
-            continue
+    for seq, gi in _optimal(calls, gens, cands, gap):
         by_call[seq].append(gens[gi])
         used_g.add(gi)
     phantom: list[Observation] = []
@@ -93,6 +93,48 @@ def assign(calls: list[dict[str, Any]], gens: list[Observation]) -> tuple[dict[i
     for seq in by_call:
         by_call[seq].sort(key=lambda o: o.start_ns)
     return by_call, phantom
+
+
+def _optimal(calls: list[dict[str, Any]], gens: list[Observation], cands: dict[int, list[dict[str, Any]]], gap: Any) -> list[tuple[int, int]]:
+    """One generation per call, minimising the total cost over the whole run (exact for small runs, greedy beyond).
+
+    Greedy closest-pair matching can take a pair that forces a much worse one later; with at most a few dozen
+    generations per scenario the exact assignment is cheap."""
+    order = sorted(calls, key=lambda c: c["received_ns"])
+    allowed = {c["seq"]: [gi for gi, g in enumerate(gens) if any(x["seq"] == c["seq"] for x in cands[id(g)])] for c in order}
+    if len(gens) > 16:
+        pairs = sorted(((gap(gens[gi], c), gi, c["seq"]) for c in order for gi in allowed[c["seq"]]), key=lambda p: (p[0], p[1], p[2]))
+        out: list[tuple[int, int]] = []
+        ug: set[int] = set()
+        uc: set[int] = set()
+        for _, gi, seq in pairs:
+            if gi not in ug and seq not in uc:
+                out.append((seq, gi))
+                ug.add(gi)
+                uc.add(seq)
+        return out
+
+    cost = {(c["seq"], gi): gap(gens[gi], c) for c in order for gi in allowed[c["seq"]]}
+    miss = (10**15, 10**15)  # a call left without a generation costs more than any real pairing
+
+    @functools.cache
+    def best(i: int, mask: int) -> tuple[tuple[int, int], tuple[tuple[int, int], ...]]:
+        if i == len(order):
+            return (0, 0), ()
+        seq = order[i]["seq"]
+        sub, rest = best(i + 1, mask)
+        top = ((sub[0] + miss[0], sub[1] + miss[1]), rest)
+        for gi in allowed[seq]:
+            if mask & (1 << gi):
+                continue
+            sub, rest = best(i + 1, mask | (1 << gi))
+            c = cost[(seq, gi)]
+            cand = ((sub[0] + c[0], sub[1] + c[1]), ((seq, gi), *rest))
+            if cand[0] < top[0]:
+                top = cand
+        return top
+
+    return list(best(0, 0)[1])
 
 
 def _describe(seen: Usage, truth: Usage) -> str:

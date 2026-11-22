@@ -13,6 +13,7 @@ from typing import Any
 
 from gtc.cell import run_cell
 from gtc.checks import FAIL, run_checks
+from gtc.errors import error_line
 from gtc.harness.server import Harness
 from gtc.matrix import ensure_env, load
 
@@ -41,8 +42,6 @@ def good(h: Harness, pins: dict[str, str], scenario: str, check: str | None) -> 
         return None, "does not resolve"
     r = run_cell(h, scenario, python=py)
     if r.exit_code != 0:
-        from gtc.eval.run import error_line
-
         return False, "crashes: " + (error_line(r.stderr_tail) or "?")
     if check is None:
         return True, "runs"

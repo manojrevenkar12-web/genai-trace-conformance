@@ -1,0 +1,11 @@
+{
+  "_comment": "Failures the nightly run already knows about, with the draft upstream report. A failure not on this list fails the nightly job.",
+  "findings": [
+    {"scenario": "langchain.anthropic_cache", "check": "one_generation_per_call", "upstream": "docs/upstream/anthropic-sdk-duplicate-generations.md"},
+    {"scenario": "langchain.anthropic_cache", "check": "cost_exact", "upstream": "docs/upstream/anthropic-sdk-duplicate-generations.md"},
+    {"scenario": "langchain.anthropic_plus_otel", "check": "one_generation_per_call", "upstream": "docs/upstream/anthropic-sdk-duplicate-generations.md"},
+    {"scenario": "langchain.anthropic_plus_otel", "check": "cost_exact", "upstream": "docs/upstream/anthropic-sdk-duplicate-generations.md"},
+    {"scenario": "pydantic_ai.anthropic_cache", "check": "one_generation_per_call", "upstream": "docs/upstream/anthropic-sdk-duplicate-generations.md"},
+    {"scenario": "pydantic_ai.anthropic_cache", "check": "cost_exact", "upstream": "docs/upstream/anthropic-sdk-duplicate-generations.md"}
+  ]
+}

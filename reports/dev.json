@@ -1,6 +1,6 @@
 {
  "set": "dev",
- "config_sha": "56a35d7550d0",
+ "config_sha": "a858c88ab94d",
  "collected_on": "2026-11-22",
  "seeds": {
   "simulation": [
@@ -3882,7 +3882,7 @@
     {
      "version": "2.47.0",
      "good": false,
-     "detail": "crashes:     For further information visit https://errors.pydantic.dev/2.14/v/missing"
+     "detail": "crashes: pydantic_core._pydantic_core.ValidationError: 1 validation error for InputTokensDetails"
     },
     {
      "version": "2.43.0",
@@ -3892,7 +3892,7 @@
     {
      "version": "2.45.0",
      "good": false,
-     "detail": "crashes:     For further information visit https://errors.pydantic.dev/2.14/v/missing"
+     "detail": "crashes: pydantic_core._pydantic_core.ValidationError: 1 validation error for InputTokensDetails"
     },
     {
      "version": "2.44.0",
@@ -3974,9 +3974,9 @@
    },
    "latency_zero": {
     "planted": 204,
-    "caught": 31,
+    "caught": 33,
     "attributed": 0,
-    "recall": 0.152,
+    "recall": 0.162,
     "example": "openai.stream (openai · latest): one_generation_per_call"
    },
    "model_missing": {
@@ -4022,8 +4022,8 @@
     "example": "openai.chat_cached (openai · latest): cost_exact, usage_exact"
    }
   },
-  "overall_recall": 0.884,
-  "attribution": 0.963,
+  "overall_recall": 0.885,
+  "attribution": 0.962,
   "benign_changes": 510,
   "false_alarms": 0,
   "false_alarm_rate": 0.0,

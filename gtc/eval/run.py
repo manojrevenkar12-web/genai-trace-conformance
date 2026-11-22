@@ -10,23 +10,23 @@ import gzip
 import hashlib
 import json
 import random
-import re
 import statistics
 from pathlib import Path
 from typing import Any
 
 from gtc.bisect import bisect
+from gtc.cell import ROOT
 from gtc.checks import CHECKS, FAIL, TITLES, WARN, run_checks
+from gtc.errors import error_line
 from gtc.eval.faultstudy import study
 from gtc.faults import FAULTS
 from gtc.harness.server import running
-from gtc.cell import ROOT
 from gtc.matrix import load, run_matrix
 from gtc.triage import CFG as TRIAGE
 from gtc.triage import score
 from gtc.world import load_world, play
 
-CONFIGS = ("world", "designs", "gates", "seeds", "scenarios", "matrix", "heldout", "triage", "dialects", "prices", "bisections")
+CONFIGS = ("world", "designs", "gates", "seeds", "scenarios", "matrix", "heldout", "triage", "dialects", "prices", "bisections", "known_findings")
 
 
 def config_sha() -> str:
@@ -34,15 +34,6 @@ def config_sha() -> str:
     for n in CONFIGS:
         h.update((ROOT / "config" / f"{n}.json").read_bytes())
     return h.hexdigest()[:12]
-
-
-def error_line(err: str | None) -> str | None:
-    """The line of a traceback that names the exception, not pydantic's 'further information' footer."""
-    if not err:
-        return None
-    lines = [ln.strip() for ln in err.strip().splitlines() if ln.strip()]
-    named = [ln for ln in lines if re.match(r"^[\w.]*(Error|Exception|Warning)\b", ln)]
-    return (named[-1] if named else lines[-1])[:200]
 
 
 def raw_path(reports: Path, set_name: str) -> Path:

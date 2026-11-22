@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
+from gtc.errors import error_line
 from gtc.eval import cli
-from gtc.eval.run import error_line
 from gtc.world import Keyed, bugs, exposure, load_world, play
 
 DESIGNS = {k: v for k, v in json.loads(Path("config/designs.json").read_text()).items() if not k.startswith("_")}

@@ -1,0 +1,12 @@
+.section { display: grid; gap: var(--s5); }
+.text { display: grid; gap: var(--s2); max-width: var(--measure); color: var(--ink-2); }
+.text h2 { font-size: var(--t-l); color: var(--ink); }
+.tables { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--s5); align-items: start; }
+.table { width: 100%; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); font-size: var(--t-s); }
+.table th, .table td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--rule); text-align: right; }
+.table thead th { font-size: var(--t-xs); font-weight: 500; color: var(--ink-3); }
+.table th:first-child { text-align: left; font-weight: 500; }
+.table tbody tr:last-child > * { border-bottom: 0; }
+.bar { display: inline-block; width: 60px; height: 6px; background: var(--grid); border-radius: 3px; margin-right: var(--s2); vertical-align: middle; overflow: hidden; }
+.bar span { display: block; height: 100%; background: var(--accent); }
+@media (max-width: 860px) { .tables { grid-template-columns: 1fr; } .bar { display: none; } }

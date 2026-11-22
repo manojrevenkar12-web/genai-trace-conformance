@@ -85,7 +85,9 @@ class ModelServer:
         wants_tool = bool(tools) and last.get("role") not in ("tool", "function")
         if wants_tool:
             fn = tools[0].get("function", tools[0])
-            calls: list[dict[str, Any]] = [{"id": f"call_{uuid.uuid4().hex[:12]}", "type": "function", "function": {"name": fn["name"], "arguments": json.dumps(_args_for(fn.get("parameters") or {}))}}]
+            calls: list[dict[str, Any]] = [
+                {"id": f"call_{uuid.uuid4().hex[:12]}", "type": "function", "function": {"name": fn["name"], "arguments": json.dumps(_args_for(fn.get("parameters") or {}))}}
+            ]
             message: dict[str, Any] = {"role": "assistant", "content": None, "tool_calls": calls}
             out_text = json.dumps(calls)
             finish = "tool_calls"

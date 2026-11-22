@@ -1,0 +1,20 @@
+.section { display: grid; gap: var(--s5); }
+.text { display: grid; gap: var(--s2); max-width: var(--measure); }
+.text h2 { font-size: var(--t-l); }
+.text p { color: var(--ink-2); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s4); }
+.card { margin: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s5); display: grid; gap: var(--s4); align-content: start; }
+.card h3 { font-size: var(--t-m); }
+.sub { font-size: var(--t-xs); color: var(--ink-3); margin-top: var(--s1); }
+.ladder { list-style: none; margin: 0; padding: 0 0 0 var(--s2); border-left: 2px solid var(--rule); display: grid; gap: var(--s2); }
+.step { display: flex; align-items: center; gap: var(--s2); font-size: var(--t-s); margin-left: -13px; }
+.mark { width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 11px; font-weight: 700; border: 2px solid var(--surface); }
+.good .mark { background: var(--pass); color: var(--pass-ink); }
+.bad .mark { background: var(--fail-soft); color: var(--fail); }
+.boundary .mark { background: var(--fail); color: var(--surface); }
+.boundary code { font-weight: 700; color: var(--ink); }
+.step code { color: var(--ink-2); }
+.tag, .tagGood { font-size: var(--t-xs); font-weight: 500; border-radius: 99px; padding: 0 8px; }
+.tag { background: var(--fail-soft); color: var(--fail); }
+.tagGood { background: var(--pass); color: var(--pass-ink); }
+.why { font-size: var(--t-xs); color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: var(--s3); }

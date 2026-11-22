@@ -1,0 +1,69 @@
+/* Every colour and size lives here. Status colours are reserved for check outcomes and always come with a glyph and a
+   label; the one categorical colour (--accent) marks "this lab" in charts. */
+:root {
+  color-scheme: light;
+  --ground: #eef0f3;
+  --surface: #ffffff;
+  --ink: #12161c;
+  --ink-2: #4a5360;
+  --ink-3: #737d8a;
+  --rule: #d9dee5;
+  --rule-strong: #b9c1cc;
+  --grid: #e9ecf0;
+  --accent: #3546c8;
+  --accent-soft: #e6e9fb;
+  --pass: #e3efe5;
+  --pass-ink: #2b6a39;
+  --fail: #b42318;
+  --fail-soft: #fbe4e1;
+  --warn: #a15c07;
+  --warn-soft: #fbefd9;
+  --crash: #2a2f36;
+  --focus: #3546c8;
+
+  --sans: "Schibsted Grotesk", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --t-xs: 0.78rem;
+  --t-s: 0.9rem;
+  --t-m: 1.05rem;
+  --t-l: 1.35rem;
+  --t-xl: 1.9rem;
+  --t-xxl: 2.7rem;
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 72px;
+  --cell: 34px;
+  --radius: 8px;
+  --radius-mark: 4px;
+  --measure: 68ch;
+  --page: 1180px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ground: #0f1216;
+    --surface: #171b21;
+    --ink: #e9edf2;
+    --ink-2: #aeb7c3;
+    --ink-3: #8691a0;
+    --rule: #2a313a;
+    --rule-strong: #3b4450;
+    --grid: #222830;
+    --accent: #8b97f0;
+    --accent-soft: #252b4d;
+    --pass: #1d2c22;
+    --pass-ink: #7cc68c;
+    --fail: #f07063;
+    --fail-soft: #3a1f1c;
+    --warn: #e0a24a;
+    --warn-soft: #3a2c16;
+    --crash: #c9d0d8;
+    --focus: #8b97f0;
+  }
+}

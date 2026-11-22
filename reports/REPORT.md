@@ -2,7 +2,7 @@
 
 _Generated from `reports/`. Do not edit by hand._
 
-## dev (config `56a35d7550d0`)
+## dev (config `a858c88ab94d`)
 
 On 16 development environments (34 pinned SDK versions), 41 of 43 scenario runs completed and 2 crashed; the checks failed on 7 runs (cost_exact, one_generation_per_call). In the simulated ecosystem the lab cut project-days on broken traces by 52% (46% to 58%) against today.
 
@@ -39,7 +39,7 @@ On 16 development environments (34 pinned SDK versions), 41 of 43 scenario runs 
 | context lost | 186 | 186 | 100% |
 | duplicate generation | 204 | 204 | 100% |
 | first token time missing | 24 | 0 | 0% |
-| latency zero | 204 | 31 | 15% |
+| latency zero | 204 | 33 | 16% |
 | model missing | 204 | 204 | 100% |
 | object object output | 204 | 204 | 100% |
 | parent never exported | 186 | 186 | 100% |

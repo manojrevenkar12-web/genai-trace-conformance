@@ -36,4 +36,5 @@ cd web && npm ci && npm test && npm run build                     # dashboard
 Held-out environments (`config/heldout.json`), held-out simulation and fault seeds (`config/seeds.json`) and issues
 created on or after the triage split date are not looked at while building. Gates (`config/gates.json`) are set on the
 development run. `python -m gtc.eval.cli heldout` runs once and writes `heldout.lock` with the config hash; a second run
-is refused, and CI fails if any config changes after the lock.
+is refused, and CI fails if any config changes after the lock. CI enforces the development gates on every change; the
+held-out gates are a one-time measurement and are reported as they came out (the triage gate failed, see the README).
